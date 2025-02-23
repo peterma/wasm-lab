@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WASM DEMO|Python|Square Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label, input, button {
+            display: block;
+            margin-bottom: 10px;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
+</head>
+<body>
+    <form id="squareForm">
+        <label for="numberInput">Enter a number to calculate its square:</label>
+        <input type="number" id="numberInput" required>
+        <button type="submit">Calculate</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('squareForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const number = parseFloat(document.getElementById('numberInput').value);
+            runPython(number);
+            // const square = runPython(number);
+            // document.getElementById('result').textContent = `The square of ${number} is ${square}`;
+        });
+
+        async function runPython(number) {
+            let pyodide = await loadPyodide();
+            await pyodide.runPythonAsync(`
+                def square(num):
+                    return num * num
+            `);
+            let square = pyodide.globals.get("square")(number);
+            // console.log("Square of 5:", square);
+            // alert("Square of 5:", square);
+            document.getElementById('result').textContent = `The square of ${number} is ${square}`;
+        }
+        // runPython();
+    </script>
+</body>
+</html>

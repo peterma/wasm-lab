@@ -1,0 +1,20 @@
+1. Python
+
+	[ ] Use a Wasm runtime like Wasmer to execute the compiled module
+	
+
+2. Go
+
+
+
+3. Java
+
+
+
+4. JavaScript
+
+
+
+5. Rust
+
+

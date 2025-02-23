@@ -1,0 +1,9 @@
+public class SquareCalculator {
+    public static double calculateSquare(double number) {
+        return number * number;
+    }
+
+    public static void main(String[] args) {
+        // This method won't be used in the browser context
+    }
+}
