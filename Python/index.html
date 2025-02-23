@@ -4,27 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WASM DEMO|Python|Square Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        label, input, button {
-            display: block;
-            margin-bottom: 10px;
-        }
-        #result {
-            font-weight: bold;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
 </head>
 <body>
+    <h1>Square Calculator (using Python + wasm)</h1>
     <form id="squareForm">
         <label for="numberInput">Enter a number to calculate its square:</label>
         <input type="number" id="numberInput" required>
@@ -32,22 +16,6 @@
     </form>
     <div id="result"></div>
 
-    <script>
-        document.getElementById('squareForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const number = parseFloat(document.getElementById('numberInput').value);
-            runPython(number);
-        });
-
-        async function runPython(number) {
-            let pyodide = await loadPyodide();
-            await pyodide.runPythonAsync(`
-                def square(num):
-                    return num * num
-            `);
-            let square = pyodide.globals.get("square")(number);
-            document.getElementById('result').textContent = `The square of ${number} is ${square}`;
-        }
-    </script>
+    <script src="python-funcs.js"></script>
 </body>
 </html>

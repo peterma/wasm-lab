@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 680px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+label, input, button {
+    display: block;
+    margin-bottom: 10px;
+}
+#result {
+    font-weight: bold;
+    margin-top: 20px;
+}

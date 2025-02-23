@@ -4,24 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>WASM DEMO|Java|Square Calculator</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                max-width: 680px;
-                margin: 20px auto;
-                padding: 20px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-            label, input, button {
-                display: block;
-                margin-bottom: 10px;
-            }
-            #result {
-                font-weight: bold;
-                margin-top: 20px;
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css" />
         <script src="classes.js"></script>
     </head>
     <body>
@@ -36,20 +19,6 @@
             <p id="result"></p>
         </div>
 
-        <script>
-            // Wait for the WASM to load
-            window?.TeaVM?.runtime?.waitForReady().then(function() {
-                window.calculateSquare = SquareCalculator.calculateSquare;
-                console.log(calculateSquare(5)); // Should output 25
-            });
-
-            function calculate(event) {
-                event.preventDefault();
-                const number = parseFloat(document.getElementById('numberInput').value);
-                const square = calculateSquare(number);
-                console.log(`The square of ${number} is ${square}`);
-                document.getElementById('result').textContent = `The square of ${number} is ${square}`;
-            }
-        </script>
+        <script src="java-funcs.js"></script>
     </body>
 </html>
