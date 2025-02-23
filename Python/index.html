@@ -37,8 +37,6 @@
             e.preventDefault();
             const number = parseFloat(document.getElementById('numberInput').value);
             runPython(number);
-            // const square = runPython(number);
-            // document.getElementById('result').textContent = `The square of ${number} is ${square}`;
         });
 
         async function runPython(number) {
@@ -48,11 +46,8 @@
                     return num * num
             `);
             let square = pyodide.globals.get("square")(number);
-            // console.log("Square of 5:", square);
-            // alert("Square of 5:", square);
             document.getElementById('result').textContent = `The square of ${number} is ${square}`;
         }
-        // runPython();
     </script>
 </body>
 </html>

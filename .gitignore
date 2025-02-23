@@ -1,0 +1,108 @@
+# Compiled output files
+target/
+*.war
+*.ear
+*.jar
+*.zip
+*.tar.gz
+
+# IDE files
+.idea/
+.project
+.classpath
+*.iml
+*.ipr
+*.iws
+.DS_Store  # macOS Finder files
+Thumbs.db   # Windows Explorer files
+
+# Log files
+*.log
+*.out
+
+# Temporary files
+*.tmp
+*.swp
+*~
+# Backup files
+*.bak
+*.orig
+
+# Maven specific
+.mvn/wrapper/target # Maven Wrapper target folder
+.settings/
+/dependency-check-report.html
+/dependency-check-report.xml
+/checkstyle-result.xml
+
+# Eclipse files (if applicable)
+.metadata/
+.recommenders/
+.settings/
+
+# NetBeans files (if applicable)
+nbproject/private/
+
+# Gradle files (if applicable - If you're mixing Maven and Gradle, be careful)
+.gradle/
+build/
+
+# OS-specific files
+.localized
+
+# Sensitive information (never commit these!)
+*.properties  # Unless you carefully manage sensitive info in separate files
+*.env
+config/sensitive_config.json
+*.key
+*.pem
+id_rsa
+id_rsa.pub
+
+# Other files that should not be committed
+.envrc  # direnv environment variables
+.history # shell history
+
+# Example for specific files you might want to ignore
+# my-secret-file.txt
+
+# Example for ignoring an entire folder
+# my-temp-folder/
+
+# Example for ignoring files within specific folders
+# src/main/resources/sensitive_config.properties
+
+# Ignore files created by build tools
+*.class
+*.dex
+*.apk
+*.aar
+
+# Ignore files created by specific plugins
+/.sonar/
+/node_modules
+
+# Distribution files (if you create them in the project folder)
+dist/
+release/
+
+# Cache directories
+.cache/
+
+# Test result files
+surefire-reports/
+failsafe-reports/
+
+# Java related
+hs_err_pid*  # Java crash logs
+java_error*  # Java error logs
+
+# If you use Docker
+.dockerignore
+
+# If you use Kubernetes
+.kube/
+
+# If you use Terraform
+.terraform*
+*.tfstate*

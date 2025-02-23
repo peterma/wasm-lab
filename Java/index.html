@@ -7,7 +7,7 @@
         <style>
             body {
                 font-family: Arial, sans-serif;
-                max-width: 400px;
+                max-width: 680px;
                 margin: 20px auto;
                 padding: 20px;
                 border: 1px solid #ccc;
@@ -22,50 +22,34 @@
                 margin-top: 20px;
             }
         </style>
-        <!-- <script src="https://cjrtnc.leaningtech.com/3.1/cj3loader.js"></script> -->
         <script src="classes.js"></script>
     </head>
     <body>
-        <!-- <form id="squareForm"> -->
-            <h1>Square Calculator (using Java + wasm)</h1>
-            <label for="numberInput">Enter a number to calculate its square:</label>
-            <input type="number" id="numberInput" placeholder="Enter a number" required>
-            <!-- <label for="wasmFile">Select the wasm file which has the square calculating function:</label> -->
-            <!-- <input type="file" id="wasmFile" accept=".wasm" required> -->
-            <button type="button" onclick="calculate()">Calculate Square</button>
+        <h1>Square Calculator (using Java + wasm)</h1>
+        <div>
+            <form onsubmit="calculate(event)">
+                <label for="numberInput">Enter a number to calculate its square:</label>
+                <input type="number" id="numberInput" placeholder="Enter a number" required>
+                <button type="submit">Calculate Square</button>
+            </form>
+            <hr/>
             <p id="result"></p>
-        <!-- </form> -->
+        </div>
 
         <script>
-            // main().then(function() {
-            //     window.calculateSquare = com.example.SquareCalculator.calculateSquare;
-            // });
-            
             // Wait for the WASM to load
-            TeaVM.runtime.waitForReady().then(function() {
-                // Now we can use the SquareCalculator
+            window?.TeaVM?.runtime?.waitForReady().then(function() {
                 window.calculateSquare = SquareCalculator.calculateSquare;
                 console.log(calculateSquare(5)); // Should output 25
             });
 
             function calculate(event) {
+                event.preventDefault();
                 const number = parseFloat(document.getElementById('numberInput').value);
                 const square = calculateSquare(number);
                 console.log(`The square of ${number} is ${square}`);
                 document.getElementById('result').textContent = `The square of ${number} is ${square}`;
-
-                event.preventDefault();
             }
         </script>
-
-        <!-- <script>
-            cheerpjInit();
-
-            async function calculate() {
-                const number = parseFloat(document.getElementById('numberInput').value);
-                const result = await cheerpjRunMain("SquareCalculator", "calculateSquare", [number]);
-                document.getElementById('result').textContent = `The square of ${number} is ${result}`;
-            }
-        </script> -->
     </body>
 </html>

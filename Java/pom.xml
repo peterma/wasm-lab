@@ -32,14 +32,6 @@
                         <goals>
                             <goal>compile</goal>
                         </goals>
-                        <!-- <configuration>
-                            <targetDirectory>${project.build.directory}/generated/js/teavm</targetDirectory>
-                            <mainClass>com.example.SquareCalculator</mainClass>
-                            <minifying>true</minifying>
-                            <debugInformationGenerated>true</debugInformationGenerated>
-                            <sourceMapsGenerated>true</sourceMapsGenerated>
-                            <sourceFilesCopied>true</sourceFilesCopied>
-                        </configuration> -->
                         <configuration>
                             <targetDirectory>${project.build.directory}/generated/js/teavm</targetDirectory>
                             <mainClass>com.example.SquareCalculator</mainClass>
